@@ -45,7 +45,7 @@
 	<div class="container">
 		<div class="col-lg-4">
 			<div class="jumbotorn" style="padding-top:20px";>
-				<form method="post" action="JoinAction.jsp">
+				<form method="post" action="joinAction.jsp">
 					<h3 style="text-align:center;">회원가입 화면</h3>
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20">
