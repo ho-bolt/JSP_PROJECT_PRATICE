@@ -11,6 +11,7 @@ public class UserDAO {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
+	//데이터 접근 객체
 	public UserDAO() {
 		
 		try {
@@ -50,5 +51,28 @@ public class UserDAO {
 		return -2;//데이터베이스 오류
 		
 	}
+	
+	public int join(User user) {
+		String sql="INSERT INTO USER VALUES(?,?,?,?,?)";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, user.getUserID());
+			pstmt.setString(1, user.getUserPassword());
+			pstmt.setString(1, user.getUserName());
+			pstmt.setString(1, user.getUserGender());
+			pstmt.setString(1, user.getUserEmail());
+			//insert 문장을 실행한 경우 0이상의 숫자가 반환된다. 
+			return pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return -1;//데이터 베이스 오류
+		
+		}
+	
+	
 	
 }
