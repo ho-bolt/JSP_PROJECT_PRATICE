@@ -53,14 +53,14 @@ public class UserDAO {
 	}
 	
 	public int join(User user) {
-		String sql="INSERT INTO USER VALUES(?,?,?,?,?)";
+		String sql="INSERT INTO USER VALUES(?, ?, ?, ?, ?)";
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, user.getUserID());
-			pstmt.setString(1, user.getUserPassword());
-			pstmt.setString(1, user.getUserName());
-			pstmt.setString(1, user.getUserGender());
-			pstmt.setString(1, user.getUserEmail());
+			pstmt.setString(2, user.getUserPassword());
+			pstmt.setString(3, user.getUserName());
+			pstmt.setString(4, user.getUserGender());
+			pstmt.setString(5, user.getUserEmail());
 			//insert 문장을 실행한 경우 0이상의 숫자가 반환된다. 
 			return pstmt.executeUpdate();
 			
@@ -72,7 +72,4 @@ public class UserDAO {
 		return -1;//데이터 베이스 오류
 		
 		}
-	
-	
-	
 }

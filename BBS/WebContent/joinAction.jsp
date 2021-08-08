@@ -8,7 +8,7 @@
 	<jsp:setProperty property="userPassword" name="user"/>	
 	<jsp:setProperty property="userName" name="user"/>	
 	<jsp:setProperty property="userGender" name="user"/>	
-	<jsp:setProperty property="userEamil" name="user"/>	
+	<jsp:setProperty property="userEmail" name="user"/>	
 	
 <!DOCTYPE html>
 <html>
