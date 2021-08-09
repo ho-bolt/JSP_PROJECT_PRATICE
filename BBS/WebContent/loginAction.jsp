@@ -15,10 +15,24 @@
 </head>
 <body>
 <%
+		
+	String userID=null;
+if(session.getAttribute("userID")!=null){
+	userID=(String)session.getAttribute("userID");
+}
+if(session.getAttribute("userID")!=null){
+	PrintWriter script=response.getWriter();
+	script.println("<script>");
+	script.println("alert('이미 로그인 되어 있습니다. ')");		
+	script.println("location.href='main.jsp'");
+	script.println("history.back()");
+	script.println("</script>");
+}
 	UserDAO userDAO=new UserDAO();
 	int result=userDAO.login(user.getUserID(), user.getUserPassword());
 	if(result==1){
 		PrintWriter script=response.getWriter();
+		session.setAttribute("userID", user.getUserID());
 		script.println("<script>");
 		script.println("alert('로그인 성공')");		
 		script.println("location.href='main.jsp'");
