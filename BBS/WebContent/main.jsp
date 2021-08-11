@@ -52,7 +52,6 @@
 				</li>
 			</ul>
 			<%
-				
 			}else{
 			%>
 					<ul class="nav navbar-nav navbar-right">

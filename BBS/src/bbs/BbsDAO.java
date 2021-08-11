@@ -140,7 +140,38 @@ public int getNext() {
 		}
 		return null; //데이터 베이스 오류 
 	}
-
+	
+	public int update( String bbsTitle, String bbsContent, int bbsID) {
+		String sql="UPDATE BBS SET bbsTitle= ? , bbsContent= ? WHERE bbsID= ?";
+		try {
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, bbsTitle);
+			pstmt.setString(2, bbsContent);
+			pstmt.setInt(3, bbsID);
+			return pstmt.executeUpdate();
+			//성공할 경우 0이상의 값 반환
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return -1;//데이터 베이스 오류 
+		
+	}
+	public int delete(int bbsID) {
+		String sql="DELETE FROM BBS WHERE bbsID=?";
+		try {
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, bbsID);
+			return pstmt.executeUpdate();
+			//성공할 경우 0이상의 값 반환
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return -1;//데이터 베이스 오류 
+	}
+	
+	
 	
 	
 	
